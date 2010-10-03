@@ -8,7 +8,8 @@ namespace SharpSpecs.Framework
     public enum ScenarioState
     {
         Passed,
-        Failed,
+        FailedOnSetup,
+        FailedOnAssertion,
         NotRun
     }
 }

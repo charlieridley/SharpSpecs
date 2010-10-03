@@ -9,12 +9,12 @@ using SharpSpecs.Framework;
 
 namespace SharpSpecs.UI.ViewModels
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : ViewModel
     {
         private string selectedFile;
         public MainWindowViewModel()
         {
-            this.Features = new ObservableCollection<Feature>();
+            this.Features = new ObservableCollection<FeatureViewModel>();
         }
 
         /// <summary>
@@ -41,29 +41,12 @@ namespace SharpSpecs.UI.ViewModels
         /// Gets or sets the features.
         /// </summary>
         /// <value>The features.</value>
-        public ObservableCollection<Feature> Features { get; private set; }
+        public ObservableCollection<FeatureViewModel> Features { get; private set; }
 
         /// <summary>
         /// Gets or sets the run all specs command.
         /// </summary>
         /// <value>The run all specs command.</value>
-        public ICommand RunAllFeaturesCommand { get; set; }
-
-        /// <summary>
-        /// Called when the property changes
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void OnNotifyPropertyChanged(string propertyName)
-        {
-            if(this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand RunAllFeaturesCommand { get; set; }        
     }
 }

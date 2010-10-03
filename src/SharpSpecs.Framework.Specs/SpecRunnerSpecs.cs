@@ -13,9 +13,9 @@ namespace SharpSpecs.Framework.Specs.SpecRunnerSpecs
     public class when_I_load_the_spec_runner : with_spec_runner
     {
         Establish context = I_have_an_instance;
-        Because I_load_the_spec_runner = () => specRunner.Load("specs.dll");
+        Because I_load_the_spec_runner = () => loadedFeatures = specRunner.Load("specs.dll");
         It should_load_the_features = () => featureLoader.Verify(x => x.GetFeaturesFromDll("specs.dll"));
-        It should_have_the_loaded_features = () => specRunner.Features.ShouldContainOnly(features);
+        It should_have_the_loaded_features = () => loadedFeatures.ShouldContainOnly(features);
     }
 
     [Subject(typeof(SpecRunner))]
@@ -50,7 +50,7 @@ namespace SharpSpecs.Framework.Specs.SpecRunnerSpecs
         protected static List<Step> endingSteps;
         protected static Scenario scenarioEndResult;
         protected static Feature featureEndResult;
-
+        protected static IEnumerable<Feature> loadedFeatures;
         protected static void I_have_an_instance()
         {
             features = new List<Feature> {new FeatureWithPrivateAndPublicScenarios(), new FeatureWithPrivateAndPublicScenarios()};

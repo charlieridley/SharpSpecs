@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SharpSpecs.Framework
 {
-    public class SpecRunner
+    public class SpecRunner : ISpecRunner
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecRunner"/> class.
@@ -31,15 +31,16 @@ namespace SharpSpecs.Framework
         /// Gets or sets the features.
         /// </summary>
         /// <value>The features.</value>
-        public IEnumerable<Feature> Features { get; private set; }
+        private IEnumerable<Feature> Features { get; set; }
 
         /// <summary>
         /// Loads from specified DLL name.
         /// </summary>
         /// <param name="dllName">Name of the DLL.</param>
-        public void Load(string dllName)
+        public IEnumerable<Feature> Load(string dllName)
         {
             this.Features = this.FeatureLoader.GetFeaturesFromDll(dllName);
+            return this.Features;
         }
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace SharpSpecs.Framework
             foreach (Feature feature in this.Features)
             {
                 this.OnFeatureBegin(feature);
-                foreach (Scenario scenario in feature.GetScenarios())
+                foreach (Scenario scenario in feature.Scenarios)
                 {
                     this.OnScenarioBegin(scenario);
                     foreach (Step step in scenario.Steps)

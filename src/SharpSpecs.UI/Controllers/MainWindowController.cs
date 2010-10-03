@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SharpSpecs.Framework;
 using SharpSpecs.UI.Helpers;
 using SharpSpecs.UI.ViewModels;
@@ -26,6 +27,17 @@ namespace SharpSpecs.UI.Controllers
             this.SpecRunner = specRunner;
             this.ViewModel = new MainWindowViewModel();
             this.SetCommands();
+            this.WireUpEvents();
+        }
+
+        /// <summary>
+        /// Wires up events.
+        /// </summary>
+        private void WireUpEvents()
+        {
+            this.SpecRunner.FeatureBegin += f => this.ViewModel.Features.First(x => x.Feature == f).StateIcon = "Images/running.gif";
+            this.SpecRunner.FeatureEnd += f => this.ViewModel.Features.First(x => x.Feature == f).StateIcon = f.State == FeatureState.Passed ? "Images/passed.gif" : "Images/failed.gif";
+            
         }
 
         /// <summary>
@@ -52,7 +64,7 @@ namespace SharpSpecs.UI.Controllers
         {
             IEnumerable<Feature> features = this.SpecRunner.Load(this.ViewModel.SelectedFile);
             this.ViewModel.Features.Clear();
-            this.ViewModel.Features.AddRange(features);
+            this.ViewModel.Features.AddRange(features.Select(f => new FeatureViewModel(f)));
         }
 
         /// <summary>

@@ -7,6 +7,11 @@
             return Given(I_have_a_test);
         }
 
+        public WhenStep WhenTest()
+        {
+            return When(I_have_a_test);
+        }
+
         public void I_have_a_test()
         {
 

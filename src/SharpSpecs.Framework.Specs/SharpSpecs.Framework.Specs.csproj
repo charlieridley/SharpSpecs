@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpSpecs.Framework.Specs</RootNamespace>
     <AssemblyName>SharpSpecs.Framework.Specs</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,13 +42,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertionHelperSpecs.cs" />
-    <Compile Include="Fakes\FeatureWithFailingScenario.cs" />
+    <Compile Include="Fakes\FeatureWithScenariosWhichHaventBeenRun.cs" />
+    <Compile Include="Fakes\FeatureWithAFailedOnSetupScenario.cs" />
+    <Compile Include="Fakes\FeatureWithAFailedOnAssertScenario.cs" />
+    <Compile Include="Fakes\FeatureWithFailingThenStepsScenario.cs" />
+    <Compile Include="Fakes\FeatureWithPassedScenarios.cs" />
     <Compile Include="StepSpecs.cs" />
     <Compile Include="Fakes\FeatureWithOneScenarioAndThreeSteps.cs" />
     <Compile Include="Fakes\FeatureWithPrivateAndPublicScenarios.cs" />

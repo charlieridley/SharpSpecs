@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SharpSpecs.Framework
 {
@@ -58,12 +59,21 @@ namespace SharpSpecs.Framework
         public string Prefix { get; private set; }
 
         /// <summary>
+        /// Gets the label.
+        /// </summary>
+        /// <value>The label.</value>
+        public string Label
+        {
+            get { return this.Prefix + " " + this.Name; }
+        }
+
+        /// <summary>
         /// Gets the name of the step.
         /// </summary>
         /// <returns></returns>
-        public string GetStepName()
+        public string Name
         {
-            return Method.Method.Name.Replace('_', ' ');
+            get { return Method.Method.Name.Replace('_', ' '); }
         }
 
         /// <summary>
@@ -71,7 +81,13 @@ namespace SharpSpecs.Framework
         /// </summary>
         internal void RunStep()
         {
-            if(this.Scenario.State == ScenarioState.Failed)
+            if(this.Scenario.State == ScenarioState.FailedOnSetup)
+            {
+                this.State = StepState.Skipped;
+                return;
+            }
+
+            if (!(this is ThenStep) && this.Scenario.State == ScenarioState.FailedOnAssertion)
             {
                 this.State = StepState.Skipped;
                 return;
@@ -86,8 +102,14 @@ namespace SharpSpecs.Framework
             {
                 this.State = StepState.Failed;
                 this.Exception = ex;
-                this.Scenario.State = ScenarioState.Failed;
+                this.Scenario.State = this is ThenStep ? ScenarioState.FailedOnAssertion : ScenarioState.FailedOnSetup;
+                return;
             }            
+
+            if (this.Scenario.Steps.Last() == this && this.Scenario.State == ScenarioState.NotRun)
+            {
+                this.Scenario.State = ScenarioState.Passed;
+            }
         }
     }
 }

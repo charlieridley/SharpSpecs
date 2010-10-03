@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SharpSpecs.Framework.Specs.Fakes
 {
-    public class FeatureWithFailingScenario : FeatureWithFailingScenarioSteps
+    public class FeatureWithFailingThenStepsScenario : FeatureWithFailingScenarioSteps
     {
         Scenario a_failing_scenario()
         {

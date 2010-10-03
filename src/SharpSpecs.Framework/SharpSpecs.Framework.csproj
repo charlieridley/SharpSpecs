@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpSpecs.Framework</RootNamespace>
     <AssemblyName>SharpSpecs.Framework</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,17 +36,20 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertComparer.cs" />
     <Compile Include="AssertionHelper.cs" />
+    <Compile Include="Catch.cs" />
+    <Compile Include="FeatureState.cs" />
     <Compile Include="Feature.cs" />
     <Compile Include="FeatureAttribute.cs" />
     <Compile Include="GivenStep.cs" />
     <Compile Include="GivenHelper.cs" />
     <Compile Include="IFeatureLoader.cs" />
+    <Compile Include="ISpecRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioState.cs" />
     <Compile Include="Step.cs" />
