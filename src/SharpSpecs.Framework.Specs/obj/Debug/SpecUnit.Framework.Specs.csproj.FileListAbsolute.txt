@@ -1,0 +1,12 @@
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\SpecUnit.Framework.Specs.dll
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\SpecUnit.Framework.Specs.pdb
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\Machine.Specifications.dll
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\SpecUnit.Framework.dll
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\SpecUnit.Framework.pdb
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\Machine.Specifications.pdb
+C:\SpecUnit\src\SpecUnit.Framework.Specs\obj\Debug\ResolveAssemblyReference.cache
+C:\SpecUnit\src\SpecUnit.Framework.Specs\obj\Debug\SpecUnit.Framework.Specs.dll
+C:\SpecUnit\src\SpecUnit.Framework.Specs\obj\Debug\SpecUnit.Framework.Specs.pdb
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\Moq.dll
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\Moq.pdb
+C:\SpecUnit\src\SpecUnit.Framework.Specs\bin\Debug\Moq.xml

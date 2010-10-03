@@ -1,0 +1,5 @@
+C:\SpecUnit\src\SpecUnit.Framework\bin\Debug\SpecUnit.Framework.dll
+C:\SpecUnit\src\SpecUnit.Framework\bin\Debug\SpecUnit.Framework.pdb
+C:\SpecUnit\src\SpecUnit.Framework\obj\Debug\ResolveAssemblyReference.cache
+C:\SpecUnit\src\SpecUnit.Framework\obj\Debug\SpecUnit.Framework.dll
+C:\SpecUnit\src\SpecUnit.Framework\obj\Debug\SpecUnit.Framework.pdb
