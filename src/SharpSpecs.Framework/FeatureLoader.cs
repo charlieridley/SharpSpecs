@@ -18,7 +18,7 @@ namespace SharpSpecs.Framework
             AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve += ReflectionOnlyAssemblyResolve;
             Assembly assembly = Assembly.LoadFrom(dllName);
             Type[] types = assembly.GetTypes();
-            IEnumerable<Type> featuresTypes = types.Where(x => x.GetCustomAttributes(typeof(FeatureAttribute), true).Count() > 0);
+            IEnumerable<Type> featuresTypes = types.Where(x => x.GetCustomAttributes(typeof(FeatureAttribute), true).Any());
             return featuresTypes.Select(featureType => (Feature) Activator.CreateInstance(featureType)).ToList();
         }
 
